@@ -1,9 +1,3 @@
-
-# coding: utf-8
-
-# In[2]:
-
-
 kalender = [('Januari', range(1, 31+1)),
            ('Februari', range(1, 28+1)),
            ('Maret', range(1, 31+1)),
@@ -17,12 +11,12 @@ kalender = [('Januari', range(1, 31+1)),
            ('November', range(1, 30+1)),
            ('Desember', range(1, 31+1))]
 
-minggu = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+minggu = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']
 
 def klndr(tahun, awal_hari):
-    pos_awal = minggu.index(awal_hari)
+    pos_awal = minggu.index('Tu')
     
-    if kabisat(tahun):
+    if kabisat(yr):
         kalender[1] = ('Februari', range(1, 29+1))
         
     for bulan, days in kalender:
@@ -37,20 +31,20 @@ def klndr(tahun, awal_hari):
                 print()
                 pos_awal = 0
         print('\n')
-        
+
 def kabisat(tahun):
-    if tahun % 4 == 0:
-        if tahun % 100 == 0:
-            if tahun % 400 == 0:
+    if tahun%400==0:
+        return True
+    else:
+        if tahun%100==0:
+            return False
+        else:
+            if tahun%4==0:
                 return True
             else:
                 return False
-        else:
-            return False
-    else:
-        return False
 
 yr = int(input('Masukan Tahun : '))
-strtday = input('Masukan Hari (Mon, Tue, Wed, Thu, Fri, Sat, Sun) : ')
-klndr(yr, strtday)
+klndr(yr, minggu.index('Tu'))
+
 
