@@ -3,7 +3,7 @@ package singlelinkedlist;
     import java.util.Scanner;
     import java.io.*;
 
-    /* @author radiansyah.akbar
+    /* @author rahmad.ady
     */
     public class SingleLinkedList {
 
